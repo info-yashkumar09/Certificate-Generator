@@ -1,6 +1,6 @@
 import { Document, Image, Page, Text, View } from '@react-pdf/renderer'
 
-const Certificate = ({styles}) => {
+const Certificate = ({name, styles}) => {
   return (
     <Document>
         <Page style={styles.page}>

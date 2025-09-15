@@ -2,6 +2,7 @@ import { StyleSheet, Font, PDFViewer } from "@react-pdf/renderer";
 import Certificate from "./components/Certificate";
 import PreviewComponent from "./components/PreviewComponent";
 import FormComponent from "./components/FormComponent";
+import { useState } from "react";
 
 Font.register({
   family: "Oswald",
@@ -78,11 +79,18 @@ const styles = StyleSheet.create({
 });
 
 function App() {
+
+  const [certificateData, setCertificateData] = useState({name: ""})
+
+  const handlePreview = (input)=>{
+    setCertificateData(input)
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <FormComponent />
-        <PreviewComponent styles={styles} />
+        <FormComponent onPreview={handlePreview} />
+        <PreviewComponent certificateData={certificateData} styles={styles} />
       </div>
     </div>
   );
