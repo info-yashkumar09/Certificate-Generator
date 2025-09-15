@@ -1,86 +1,91 @@
-import {StyleSheet, Font, PDFViewer} from "@react-pdf/renderer"
+import { StyleSheet, Font, PDFViewer } from "@react-pdf/renderer";
 import Certificate from "./components/Certificate";
 import PreviewComponent from "./components/PreviewComponent";
+import FormComponent from "./components/FormComponent";
 
 Font.register({
-  family: 'Oswald',
-  src: 'https://fonts.gstatic.com/s/oswald/v13/Y_TKV6o8WovbUd3m_X9aAA.ttf'
+  family: "Oswald",
+  src: "https://fonts.gstatic.com/s/oswald/v13/Y_TKV6o8WovbUd3m_X9aAA.ttf",
 });
 
 const styles = StyleSheet.create({
-  page:{
+  page: {
     padding: 40,
     fontSize: 14,
-    textAlign: 'center',
-    backgroundColor: '#fdfdfd',
-    height: '100%'
+    textAlign: "center",
+    backgroundColor: "#fdfdfd",
+    height: "100%",
   },
-  border:{
+  border: {
     border: "5pt solid #1d4ed8",
     padding: 20,
     borderRadius: 10,
     height: "100%",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center"
+    justifyContent: "center",
   },
-  logo:{
+  logo: {
     width: 120,
     height: 120,
     marginBottom: 20,
     alignSelf: "center",
     borderRadius: 60,
-    objectFit: "cover"
+    objectFit: "cover",
   },
-  title:{
+  title: {
     fontSize: 30,
     marginBottom: 20,
-    fontFamily: 'Oswald',
-    color: "#1d4ed8"
+    fontFamily: "Oswald",
+    color: "#1d4ed8",
   },
-  subtitle:{
+  subtitle: {
     fontSize: 18,
     marginBottom: 40,
     fontFamily: "Times-Roman",
-    color: "#444"
+    color: "#444",
   },
-  name:{
+  name: {
     fontSize: 26,
     marginVertical: 20,
     fontFamily: "Oswald",
-    color: "#111"
+    color: "#111",
   },
-  body:{
+  body: {
     fontSize: 16,
     marginBottom: 40,
-    fontFamily: "Times-Roman"
+    fontFamily: "Times-Roman",
   },
-  footer:{
+  footer: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 50,
-    paddingHorizontalL: 40
+    paddingHorizontalL: 40,
   },
-  signature:{
+  signature: {
     borderTop: "1pt solid #000",
     width: 150,
     textAlign: "center",
     paddingTop: 5,
     fontSize: 12,
-    fontFamily: "Times-Roman"
+    fontFamily: "Times-Roman",
   },
-  date:{
+  date: {
     marginTop: 20,
     fontSize: 12,
-    color: "grey"
-  }
-
-})
+    color: "grey",
+  },
+});
 
 function App() {
-  return <div>
-    <PreviewComponent styles={styles}/>
-  </div>
+  return (
+    <div className="min-h-screen bg-gray-50 p-4">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <FormComponent />
+        <PreviewComponent styles={styles} />
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
